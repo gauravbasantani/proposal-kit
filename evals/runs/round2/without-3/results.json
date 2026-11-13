@@ -1,0 +1,27 @@
+{
+ "written": [
+  "src/views/GeneratedSummary.tsx"
+ ],
+ "changedKit": [],
+ "counts": {
+  "1": 0,
+  "2": 0,
+  "3": 0,
+  "4": 0,
+  "5": 2,
+  "other": 0
+ },
+ "findings": [
+  {
+   "type": 5,
+   "check": "axe-jsdom:definition-list",
+   "detail": ".flex-col.rounded-lg.bg-card:nth-child(4) > .px-5[data-slot=\"card-content\"] > dl"
+  },
+  {
+   "type": 5,
+   "check": "axe-jsdom:definition-list",
+   "detail": ".flex-col.rounded-lg.bg-card:nth-child(5) > .px-5[data-slot=\"card-content\"] > dl"
+  }
+ ],
+ "renderedText": "Brightline Home Solar · Proposal P-2077Ready to signSolar proposal for Maria Okafor77 Juniper Bend, Lakeport · Prepared November 12, 2026At a glanceMonthly payment$149 per month6.49% APR · 240 months (20 years)Estimated bill savings over 25 yearsEstimated$65,080First year: $1,785Assumes 11,900 kWh a year at $0.15 per kWh, rates rising 3% a year, over 25 years. Not a guarantee.Your system7.38 kW solar arrayPanels18 panels at 410 W eachSystem size7.38 kWInvertersOne microinverter per panelEstimated production11,900 kWh a year EstimatedPricePanels and inverters$13,950Installation$6,450Permits and inspection$1,600Total system price$22,000FinancingBorrowing adds a finance charge, so the total you pay over the loan is more than the system price.Total system price$22,000Down payment$2,000Amount financed$20,000Monthly payment$149 · 6.49% APR · 240 months (20 years)Total of 240 payments$35,760Finance charge (interest)$15,760Total cost with loan (down payment + all payments)$37,760Savings and production figures are estimates, not guarantees. Actual results depend on weather, shading, usage, and future utility rates. Loan payments are fixed by the loan agreement and are owed regardless of actual savings."
+}

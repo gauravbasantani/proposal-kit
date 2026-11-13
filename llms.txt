@@ -1,0 +1,26 @@
+# proposal-kit
+
+> A tiny design system for one solar proposal summary, built so an AI coding tool can't make the costly mistakes quietly. Three components carry every amount a homeowner signs: Money, PaymentLine and SavingsEstimate. Made-up data; unofficial sample.
+
+## Read first
+
+- [AGENTS.md](AGENTS.md): the rules for building a view (use these three components, tokens only, never type a currency string)
+- [components.json](components.json): every component with its purpose, props (types, which are required), do and don't, and one example
+
+## Components
+
+- [Money](src/components/Money.tsx): cents in, formatted currency out
+- [PaymentLine](src/components/PaymentLine.tsx): monthly payment; apr and termMonths are required
+- [SavingsEstimate](src/components/SavingsEstimate.tsx): requires assumptions, always says Estimated
+- [shadcn/ui primitives](src/components/ui/): Card, Badge, Button, Separator
+
+## Tokens and checks
+
+- [Tokens](src/styles/tokens.css): color, type, spacing and radius, light and dark
+- [Lint rules](eslint-rules/index.js): no-raw-currency, payment-needs-terms, tokens-only, savings-needs-estimate, no-color-only-status
+- [Reference view](src/views/ProposalSummary.tsx): a proposal summary built only from the kit
+
+## Optional
+
+- [Storybook](https://gauravbasantani.github.io/proposal-kit/): every state of each component, with a "For AI tools" block
+- [Eval](evals/README.md): fresh Claude Code runs with and without these docs, and what the checks caught

@@ -1,0 +1,111 @@
+{
+  "name": "proposal-kit",
+  "description": "A tiny design system for one solar proposal summary. Three components carry every amount a homeowner signs: Money, PaymentLine and SavingsEstimate. Made-up data; unofficial sample.",
+  "rules": [
+    "Build proposal views only from Money, PaymentLine, SavingsEstimate and the shadcn/ui primitives Card, Badge, Button and Separator.",
+    "Never type a currency string such as \"$24,900\" and never format currency yourself (no Intl.NumberFormat with style currency, no toLocaleString currency, no \"$\" + value). Pass whole cents to Money.",
+    "Never show a monthly payment except through PaymentLine. It requires apr and termMonths, so the APR and term always sit on the same line.",
+    "Never show savings except through SavingsEstimate. It always says Estimated and always prints its assumptions (kWh a year, rate per kWh, yearly increase, years).",
+    "Use token classes only (bg-card, text-foreground, text-muted-foreground, border, bg-primary, bg-success, bg-estimate and the others listed under tokens). No hex, rgb, px, inline style sizes or Tailwind palette classes such as bg-green-500; the palette is switched off.",
+    "Status is never shown by color alone. Use a Badge with words, and an icon if you like.",
+    "Do not mention tax credits, rebates or incentive amounts."
+  ],
+  "tokens": {
+    "file": "src/styles/tokens.css",
+    "themes": ["light (default)", "dark (add class \"dark\" to <html>)"],
+    "colorClasses": {
+      "surfaces": ["bg-background", "bg-card", "bg-muted", "bg-primary", "bg-secondary", "bg-success", "bg-estimate"],
+      "text": ["text-foreground", "text-card-foreground", "text-muted-foreground", "text-primary", "text-primary-foreground", "text-secondary-foreground", "text-success-foreground", "text-estimate-foreground", "text-destructive"],
+      "lines": ["border", "border-border", "ring-ring"]
+    },
+    "type": ["text-xs", "text-sm", "text-base", "text-lg", "text-xl", "text-2xl", "text-3xl"],
+    "spacing": "Tailwind spacing classes (p-4, gap-2, mt-6 ...) are multiples of --pk-space-unit (0.25rem).",
+    "radius": ["rounded-sm", "rounded-md", "rounded-lg", "rounded-full"],
+    "contrast": "Every text token pair is at least 4.5:1 in light and dark (src/styles/tokens.test.ts)."
+  },
+  "components": [
+    {
+      "name": "Money",
+      "path": "src/components/Money.tsx",
+      "import": "import { Money } from \"@/components/Money\";",
+      "purpose": "Shows any amount of money on a proposal: prices, line items, down payment, totals. The only place that formats currency.",
+      "props": [
+        { "name": "cents", "type": "number", "required": true, "description": "The amount in whole cents. 2490000 is $24,900. Never pass dollars. Throws on fractions of a cent." },
+        { "name": "precision", "type": "\"auto\" | \"cents\" | \"dollars\"", "required": false, "default": "\"auto\"", "description": "auto hides .00 on whole-dollar amounts; cents always shows two decimals; dollars rounds to whole dollars." },
+        { "name": "className", "type": "string", "required": false, "description": "Token classes only." }
+      ],
+      "do": [
+        "Convert dollars to cents once, at the data layer: 24900 dollars is cents={2490000}.",
+        "Use precision=\"dollars\" only for rounded estimates."
+      ],
+      "dont": [
+        "Don't write \"$24,900\" or `$${price}` in JSX.",
+        "Don't call Intl.NumberFormat or toLocaleString with style currency.",
+        "Don't pass dollars: cents={24900} renders $249."
+      ],
+      "example": "<Money cents={2490000} />"
+    },
+    {
+      "name": "PaymentLine",
+      "path": "src/components/PaymentLine.tsx",
+      "import": "import { PaymentLine } from \"@/components/PaymentLine\";",
+      "purpose": "Shows a monthly loan payment with its APR and term on the same line, so a payment is never shown without the cost of the loan.",
+      "props": [
+        { "name": "monthlyCents", "type": "number", "required": true, "description": "The monthly payment in whole cents. 16028 is $160.28." },
+        { "name": "apr", "type": "number", "required": true, "description": "Annual percentage rate as a percent: 5.99 means 5.99% APR." },
+        { "name": "termMonths", "type": "number", "required": true, "description": "Loan term in months: 300 is 25 years." },
+        { "name": "label", "type": "string", "required": false, "default": "\"Monthly payment\"", "description": "Heading above the amount." },
+        { "name": "lender", "type": "string", "required": false, "description": "Lender or program name, printed under the terms." },
+        { "name": "className", "type": "string", "required": false, "description": "Token classes only." }
+      ],
+      "do": [
+        "Pass the real apr and termMonths from the loan offer.",
+        "Use one PaymentLine per loan option."
+      ],
+      "dont": [
+        "Don't write \"$160/mo\" or \"per month\" next to a Money.",
+        "Don't make apr or termMonths optional or pass 0 to hide them."
+      ],
+      "example": "<PaymentLine monthlyCents={16028} apr={5.99} termMonths={300} lender=\"Made-up Credit Union solar loan\" />"
+    },
+    {
+      "name": "SavingsEstimate",
+      "path": "src/components/SavingsEstimate.tsx",
+      "import": "import { SavingsEstimate } from \"@/components/SavingsEstimate\";",
+      "purpose": "Shows estimated bill savings. Computes the figure from the assumptions, always labels it Estimated and always prints the assumptions under it.",
+      "props": [
+        { "name": "assumptions", "type": "{ annualKwh: number; ratePerKwhCents: number; yearlyIncreasePct: number; years: number }", "required": true, "description": "Yearly production in kWh, today's utility rate in cents per kWh (16 is $0.16), yearly rate increase as a percent (3 is 3%), and years covered." },
+        { "name": "label", "type": "string", "required": false, "default": "\"Estimated bill savings over N years\"", "description": "Heading. If it does not start with Estimated, the component adds it." },
+        { "name": "className", "type": "string", "required": false, "description": "Token classes only." }
+      ],
+      "do": [
+        "Pass the same assumptions the proposal uses everywhere else.",
+        "Let the component compute the figure; do not pass a savings number."
+      ],
+      "dont": [
+        "Don't show a savings figure in your own markup.",
+        "Don't hide or shorten the assumptions line.",
+        "Don't add tax credits or incentives to savings."
+      ],
+      "example": "<SavingsEstimate assumptions={{ annualKwh: 13860, ratePerKwhCents: 16, yearlyIncreasePct: 3, years: 25 }} />"
+    }
+  ],
+  "primitives": [
+    { "name": "Card", "import": "import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from \"@/components/ui/card\";", "purpose": "Groups one topic: system, price, payment, savings." },
+    { "name": "Badge", "import": "import { Badge } from \"@/components/ui/badge\";", "purpose": "Status in words. Variants: default, secondary, success, estimate, outline." },
+    { "name": "Button", "import": "import { Button } from \"@/components/ui/button\";", "purpose": "Actions. Variants: default, outline, secondary, ghost, link, destructive." },
+    { "name": "Separator", "import": "import { Separator } from \"@/components/ui/separator\";", "purpose": "A line between groups, for example above a total." }
+  ],
+  "referenceView": "src/views/ProposalSummary.tsx",
+  "checks": {
+    "command": "npm run check",
+    "runs": ["tsc -b (required props)", "eslint with proposal-kit rules", "scripts/check-tokens.mjs (hex/px in CSS)", "vitest (component tests, axe on the reference view, token contrast, lint rule tests)"],
+    "lintRules": {
+      "proposal-kit/no-raw-currency": "typed currency strings and hand-made currency formatting",
+      "proposal-kit/payment-needs-terms": "monthly payment text without PaymentLine",
+      "proposal-kit/tokens-only": "hex, rgb, px, inline px styles, arbitrary values and Tailwind palette classes",
+      "proposal-kit/savings-needs-estimate": "savings text without SavingsEstimate",
+      "proposal-kit/no-color-only-status": "a colored dot with no words"
+    }
+  }
+}

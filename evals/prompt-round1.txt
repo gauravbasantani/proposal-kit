@@ -1,0 +1,13 @@
+Build a proposal summary page for this homeowner.
+
+Homeowner: Maria Okafor, 77 Juniper Bend, Lakeport
+Installer: Brightline Home Solar
+Proposal: P-2077, prepared November 12, 2026, ready to sign
+System: 18 panels at 410 W each (7.38 kW), one microinverter per panel
+Estimated production: 11,900 kWh a year
+Price: panels and inverters $13,950; installation $6,450; permits and inspection $1,600; total $22,000
+Down payment: $2,000; amount financed: $20,000
+Loan: 6.49% APR for 240 months; monthly payment $149.00; total of 240 payments $35,760
+Savings: utility rate $0.15 per kWh today, rising 3% a year; over 25 years that is about $65,080 ($1,785 the first year)
+
+Write the page to src/views/GeneratedSummary.tsx as `export default function GeneratedSummary()` with no props (keep the data in that file). Use the components in this repo. You can read and write files but cannot run commands.

@@ -1,0 +1,9 @@
+# Exact command used for each eval run (from evals/harness/run-round.sh), run inside a fresh copy:
+claude -p "$(cat evals/prompt-round1.txt)"   # round 2: evals/prompt-round2.txt \
+  --restricted --strict-mcp-config \
+  --tools "Read,Write,Edit,Glob,Grep" \
+  --allowedTools "Read,Write,Edit,Glob,Grep" \
+  --permission-mode acceptEdits \
+  --no-session-persistence --max-budget-usd 4 \
+  --output-format stream-json --verbose
+# wrapped in: timeout 900 (15 minutes per run). Default model. Claude Code 2.1.323.

@@ -1,0 +1,182 @@
+{
+ "without": {
+  "runs": [
+   {
+    "run": "without-1",
+    "counts": {
+     "1": 0,
+     "2": 0,
+     "3": 0,
+     "4": 0,
+     "5": 0,
+     "other": 0
+    },
+    "cost": 0.3594966,
+    "readAgents": false,
+    "readManifest": false
+   },
+   {
+    "run": "without-2",
+    "counts": {
+     "1": 0,
+     "2": 0,
+     "3": 0,
+     "4": 0,
+     "5": 2,
+     "other": 0
+    },
+    "cost": 0.30957419999999997,
+    "readAgents": false,
+    "readManifest": false
+   },
+   {
+    "run": "without-3",
+    "counts": {
+     "1": 0,
+     "2": 0,
+     "3": 0,
+     "4": 0,
+     "5": 2,
+     "other": 0
+    },
+    "cost": 0.3085084,
+    "readAgents": false,
+    "readManifest": false
+   },
+   {
+    "run": "without-4",
+    "counts": {
+     "1": 0,
+     "2": 0,
+     "3": 0,
+     "4": 0,
+     "5": 2,
+     "other": 0
+    },
+    "cost": 0.34526779999999996,
+    "readAgents": false,
+    "readManifest": false
+   },
+   {
+    "run": "without-5",
+    "counts": {
+     "1": 0,
+     "2": 0,
+     "3": 0,
+     "4": 0,
+     "5": 1,
+     "other": 0
+    },
+    "cost": 0.31237499999999996,
+    "readAgents": false,
+    "readManifest": false
+   }
+  ],
+  "instances": {
+   "1": 0,
+   "2": 0,
+   "3": 0,
+   "4": 0,
+   "5": 7,
+   "other": 0
+  },
+  "runsFailing": {
+   "1": 0,
+   "2": 0,
+   "3": 0,
+   "4": 0,
+   "5": 4,
+   "other": 0
+  }
+ },
+ "with": {
+  "runs": [
+   {
+    "run": "with-1",
+    "counts": {
+     "1": 0,
+     "2": 0,
+     "3": 0,
+     "4": 0,
+     "5": 0,
+     "other": 0
+    },
+    "cost": 0.35311459999999995,
+    "readAgents": true,
+    "readManifest": true
+   },
+   {
+    "run": "with-2",
+    "counts": {
+     "1": 0,
+     "2": 0,
+     "3": 0,
+     "4": 0,
+     "5": 0,
+     "other": 0
+    },
+    "cost": 0.282244,
+    "readAgents": false,
+    "readManifest": true
+   },
+   {
+    "run": "with-3",
+    "counts": {
+     "1": 0,
+     "2": 0,
+     "3": 0,
+     "4": 0,
+     "5": 0,
+     "other": 0
+    },
+    "cost": 0.3154406,
+    "readAgents": false,
+    "readManifest": true
+   },
+   {
+    "run": "with-4",
+    "counts": {
+     "1": 0,
+     "2": 0,
+     "3": 0,
+     "4": 0,
+     "5": 0,
+     "other": 0
+    },
+    "cost": 0.3123182,
+    "readAgents": false,
+    "readManifest": true
+   },
+   {
+    "run": "with-5",
+    "counts": {
+     "1": 0,
+     "2": 0,
+     "3": 0,
+     "4": 0,
+     "5": 1,
+     "other": 0
+    },
+    "cost": 0.2558974,
+    "readAgents": false,
+    "readManifest": false
+   }
+  ],
+  "instances": {
+   "1": 0,
+   "2": 0,
+   "3": 0,
+   "4": 0,
+   "5": 1,
+   "other": 0
+  },
+  "runsFailing": {
+   "1": 0,
+   "2": 0,
+   "3": 0,
+   "4": 0,
+   "5": 1,
+   "other": 0
+  }
+ }
+}

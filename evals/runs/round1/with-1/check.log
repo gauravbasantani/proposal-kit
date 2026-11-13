@@ -1,0 +1,25 @@
+files the run wrote: src/views/GeneratedSummary.tsx
+kit files the run changed (not used in the check; the kit's originals are): (none)
+
+$ tsc -p tsconfig.app.json --noEmit (exit 0)
+(no output)
+
+$ eslint src/views/GeneratedSummary.tsx (exit 0)
+(no problems)
+
+$ vitest run src/__eval__/generated.test.tsx (exit 0)
+RUN  v4.1.12 <work>/pk-check/round1/with-1
+
+
+ Test Files  1 passed (1)
+      Tests  1 passed (1)
+   Start at  21:16:27
+   Duration  1.43s (transform 101ms, setup 127ms, import 292ms, tests 335ms, environment 579ms)
+
+$ axe color-contrast in Chrome, light: 0 violation(s)
+
+$ axe color-contrast in Chrome, dark: 0 violation(s)
+
+FINDINGS (0)
+
+COUNTS {"1":0,"2":0,"3":0,"4":0,"5":0,"other":0}

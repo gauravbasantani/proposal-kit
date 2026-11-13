@@ -1,0 +1,67 @@
+{
+ "written": [
+  "src/views/GeneratedSummary.tsx"
+ ],
+ "changedKit": [],
+ "counts": {
+  "1": 4,
+  "2": 1,
+  "3": 2,
+  "4": 1,
+  "5": 1,
+  "other": 1
+ },
+ "findings": [
+  {
+   "type": 2,
+   "check": "tsc:PaymentLine",
+   "detail": "src/views/GeneratedSummary.tsx:14 TS2739 Type '{ monthlyCents: number; }' is missing the following properties from type 'PaymentLineProps': apr, termMonths"
+  },
+  {
+   "type": 5,
+   "check": "eslint:proposal-kit/no-color-only-status",
+   "detail": "src/views/GeneratedSummary.tsx:9 proposal-kit/no-color-only-status This element shows a status by color alone (an empty colored shape). Add words, for example <Badge variant=\"success\"><CheckCircle2 aria-hidden />Ready to sign</Badge>."
+  },
+  {
+   "type": 1,
+   "check": "eslint:proposal-kit/no-raw-currency",
+   "detail": "src/views/GeneratedSummary.tsx:12 proposal-kit/no-raw-currency Raw currency \"Total price: $22,000\". Render amounts with <Money cents={...} /> so formatting and rounding match the rest of the proposal."
+  },
+  {
+   "type": 3,
+   "check": "eslint:proposal-kit/tokens-only",
+   "detail": "src/views/GeneratedSummary.tsx:13 proposal-kit/tokens-only Hardcoded color \"#999999\". Use a token (they switch for dark mode)."
+  },
+  {
+   "type": 3,
+   "check": "eslint:proposal-kit/tokens-only",
+   "detail": "src/views/GeneratedSummary.tsx:13 proposal-kit/tokens-only Hardcoded px value \"13px\". Use the spacing, type and radius tokens."
+  },
+  {
+   "type": 1,
+   "check": "eslint:proposal-kit/no-raw-currency",
+   "detail": "src/views/GeneratedSummary.tsx:13 proposal-kit/no-raw-currency Raw currency \"$2,000\". Render amounts with <Money cents={...} /> so formatting and rounding match the rest of the proposal."
+  },
+  {
+   "type": 1,
+   "check": "eslint:proposal-kit/no-raw-currency",
+   "detail": "src/views/GeneratedSummary.tsx:15 proposal-kit/no-raw-currency Raw currency \"$149.00/mo\". Render amounts with <Money cents={...} /> so formatting and rounding match the rest of the proposal."
+  },
+  {
+   "type": 1,
+   "check": "eslint:proposal-kit/no-raw-currency",
+   "detail": "src/views/GeneratedSummary.tsx:16 proposal-kit/no-raw-currency Raw currency \"You'll save about $65,080 over 25 years\". Render amounts with <Money cents={...} /> so formatting and rounding match the rest of the proposal."
+  },
+  {
+   "type": 4,
+   "check": "eslint:proposal-kit/savings-needs-estimate",
+   "detail": "src/views/GeneratedSummary.tsx:16 proposal-kit/savings-needs-estimate Savings text \"You'll save about $65,080 over 25 years\" without <SavingsEstimate>. Savings must say \"Estimated\" and print the rate, yearly increase and years; use <SavingsEstimate assumptions={...} />."
+  },
+  {
+   "type": "other",
+   "check": "render-error",
+   "detail": "RangeError: apr must be a percent of zero or more, got undefined."
+  }
+ ],
+ "renderedText": ""
+}
