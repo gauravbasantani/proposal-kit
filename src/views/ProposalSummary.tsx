@@ -9,7 +9,7 @@ import { PaymentLine } from "@/components/PaymentLine";
 import { SavingsEstimate } from "@/components/SavingsEstimate";
 import { sampleProposal, totals, type Proposal } from "@/data/sample-proposal";
 
-export const SAMPLE_LABEL = "Unofficial sample for the Artemis Design Engineer application; made-up data.";
+export const SAMPLE_LABEL = "Unofficial sample; made-up data.";
 
 const kwFormat = new Intl.NumberFormat("en-US", { minimumFractionDigits: 1, maximumFractionDigits: 2 });
 const intFormat = new Intl.NumberFormat("en-US");
