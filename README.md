@@ -3,7 +3,7 @@
 A tiny design system for one solar proposal summary, built so an AI coding tool can't make the
 costly mistakes quietly.
 
-**Unofficial sample for the Artemis Design Engineer application; made-up data.** The company,
+**Unofficial sample; made-up data.** The company,
 homeowner and numbers are invented. Nothing here is a quote, and nothing mentions tax credits or
 incentives.
 
